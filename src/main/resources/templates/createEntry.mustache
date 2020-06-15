@@ -1,0 +1,16 @@
+{{> header}}
+<div>
+    <h1>Add new Entry</h1>
+    <a href="/home">Home</a>
+
+    <form method="post" action="createNewEntry">
+        <input type="text" placeholder="Description" name="desc" required>
+        <input type="number" placeholder="Cost" name="cost" required>
+        <select name="type">
+            <option value="1">Incomes</option>
+            <option value="2">Expenses</option>
+        </select>
+        <input type="submit" value="Add">
+    </form>
+</div>
+{{> footer}}

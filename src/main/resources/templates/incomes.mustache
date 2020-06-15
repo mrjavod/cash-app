@@ -1,0 +1,26 @@
+{{> header}}
+<style>
+    table, tr, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+</style>
+<div>
+    <h1>Incomes</h1>
+    <a href="/home">Home</a>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Cost</th>
+        </tr>
+        {{#entriesList}}
+        <tr>
+            <td>{{desc}}</td>
+            <td>{{cost}}</td>
+        </tr>
+        {{/entriesList}}
+    </table>
+</div>
+{{> footer}}
