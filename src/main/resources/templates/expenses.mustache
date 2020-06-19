@@ -7,8 +7,13 @@
     }
 </style>
 <div>
-    <h1>Incomes</h1>
+    <h1>Expenses</h1>
     <a href="/home">Home</a>
+
+    <form method="post" action="searchExpenses">
+        <input type="date" name="searchDate" placeholder="Date" required>
+        <input type="submit" value="Search">
+    </form>
 
     <table>
         <tr>

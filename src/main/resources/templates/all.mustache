@@ -7,19 +7,27 @@
     }
 </style>
 <div>
-    <h1>Incomes</h1>
+    <h1>All Data</h1>
     <a href="/home">Home</a>
+
+    <form method="post" action="search">
+        <input type="date" name="dateFrom" required>
+        <input type="date" name="dateTo" required>
+        <input type="submit" value="Search">
+    </form>
 
     <table>
         <tr>
             <th>Description</th>
             <th>Cost</th>
+            <th>Type</th>
             <th>Date</th>
         </tr>
         {{#entriesList}}
         <tr>
             <td>{{desc}}</td>
             <td>{{cost}}</td>
+            <td>{{type}}</td>
             <td>{{date}}</td>
         </tr>
         {{/entriesList}}
