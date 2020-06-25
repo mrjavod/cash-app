@@ -5,6 +5,7 @@ import com.is.cashApp.repository.CashRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,8 +30,28 @@ public class CashService {
         return cashRepository.findByTypeId(2);
     }
 
-    public List<Cash> getExpensesByDate(String date) {
-        return cashRepository.findByEntryDate(date);
+    public List<Cash> getIncomesByDate(Date date) {
+        return cashRepository.findByEntryDateAndAndTypeId(date, 1);
     }
 
+    public List<Cash> getExpensesByDate(Date date) {
+        return cashRepository.findByEntryDateAndAndTypeId(date, 2);
+    }
+
+    public List<Cash> getAll(Date date) {
+        return cashRepository.findAllByEntryDate(date);
+    }
+
+    public List<Cash> getAllBetweenDates(Date dateFrom, Date dateTo) {
+        return cashRepository.findAllByEntryDateBetweenOrderByEntryDate(dateFrom, dateTo);
+    }
+
+    public Cash getCashById(Integer id) {
+        return cashRepository.getOne(id);
+    }
+
+    public void remove(Cash cash) {
+        cashRepository.delete(cash);
+        System.out.println("Cash is deleted");
+    }
 }

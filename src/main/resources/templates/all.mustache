@@ -1,11 +1,4 @@
 {{> header}}
-<style>
-    table, tr, th, td{
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 10px;
-    }
-</style>
 <div>
     <h1>All Data</h1>
     <a href="/home">Home</a>
@@ -25,10 +18,10 @@
         </tr>
         {{#entriesList}}
         <tr>
-            <td>{{desc}}</td>
+            <td>{{description}}</td>
             <td>{{cost}}</td>
-            <td>{{type}}</td>
-            <td>{{date}}</td>
+            <td>{{typeName}}</td>
+            <td>{{entryDate}}</td>
         </tr>
         {{/entriesList}}
     </table>

@@ -1,9 +1,6 @@
 package com.is.cashApp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,7 +15,8 @@ public class Cash {
 
     private Double cost;
 
-    private String entryDate;
+    @Temporal(TemporalType.DATE)
+    private Date entryDate;
 
     private Integer typeId;
 
@@ -27,11 +25,35 @@ public class Cash {
     public Cash() {
     }
 
-    public Cash(String description, Double cost, String entryDate, Integer typeId, String typeName) {
+    public Cash(String description, Double cost, Date entryDate, Integer typeId, String typeName) {
         this.description = description;
         this.cost = cost;
         this.entryDate = entryDate;
         this.typeId = typeId;
         this.typeName = typeName;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Double getCost() {
+        return cost;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public Integer getTypeId() {
+        return typeId;
+    }
+
+    public String getTypeName() {
+        return typeName;
     }
 }

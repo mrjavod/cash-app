@@ -1,26 +1,28 @@
 {{> header}}
-<style>
-    table, tr, th, td{
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 10px;
-    }
-</style>
 <div>
     <h1>Incomes</h1>
     <a href="/home">Home</a>
+
+    <form method="post" action="searchIncomes">
+        <input type="date" name="searchDate" value={{currentDate}} required>
+        <input type="submit" value="Search">
+    </form>
+
+    <h5>Result on {{currentDate}}</h5>
 
     <table>
         <tr>
             <th>Description</th>
             <th>Cost</th>
             <th>Date</th>
+            <th></th>
         </tr>
         {{#entriesList}}
         <tr>
             <td>{{description}}</td>
             <td>{{cost}}</td>
             <td>{{entryDate}}</td>
+            <td><a href="/deleteIncomes/{{id}}">Delete</a></td>
         </tr>
         {{/entriesList}}
     </table>
