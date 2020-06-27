@@ -16,12 +16,14 @@
             <th>Cost</th>
             <th>Date</th>
             <th></th>
+            <th></th>
         </tr>
         {{#entriesList}}
         <tr>
             <td>{{description}}</td>
             <td>{{cost}}</td>
             <td>{{entryDate}}</td>
+            <td><a href="/edit/{{id}}">Edit</a></td>
             <td><a href="/deleteIncomes/{{id}}">Delete</a></td>
         </tr>
         {{/entriesList}}

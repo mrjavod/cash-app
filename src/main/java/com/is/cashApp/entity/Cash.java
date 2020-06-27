@@ -56,4 +56,28 @@ public class Cash {
     public String getTypeName() {
         return typeName;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCost(Double cost) {
+        this.cost = cost;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
 }

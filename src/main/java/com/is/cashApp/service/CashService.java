@@ -52,6 +52,9 @@ public class CashService {
 
     public void remove(Cash cash) {
         cashRepository.delete(cash);
-        System.out.println("Cash is deleted");
+    }
+
+    public void update(Cash cash) {
+        cashRepository.save(cash);
     }
 }

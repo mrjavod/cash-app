@@ -120,7 +120,7 @@ public class HomeController {
 
     @GetMapping("/deleteIncomes/{id}")
     public String deleteIncomes(Map<String, Object> model,
-                          @PathVariable(value = "id") Integer id) {
+                                @PathVariable(value = "id") Integer id) {
 
         Cash cash = service.getCashById(id);
 
@@ -138,7 +138,7 @@ public class HomeController {
 
     @GetMapping("/deleteExpenses/{id}")
     public String deleteExpenses(Map<String, Object> model,
-                          @PathVariable(value = "id") Integer id) {
+                                 @PathVariable(value = "id") Integer id) {
 
         Cash cash = service.getCashById(id);
 
@@ -152,6 +152,41 @@ public class HomeController {
         model.put("currentDate", currentDate);
         model.put("entriesList", service.getIncomesByDate(new Date()));
         return "expenses";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(Map<String, Object> model,
+                       @PathVariable(value = "id") Integer id) {
+
+        Cash cash = service.getCashById(id);
+
+        model.put("id", cash.getId());
+        model.put("description", cash.getDescription());
+        model.put("cost", cash.getCost());
+        model.put("entryDate", cash.getEntryDate());
+
+        model.put("title", "Edit");
+        model.put("entryType", cash.getTypeName());
+
+        return "editEntry";
+    }
+
+    @PostMapping("edit/updateEntry")
+    public String updateEntry(Map<String, Object> model,
+                            @RequestParam(name = "id") Integer id,
+                            @RequestParam(name = "desc") String desc,
+                            @RequestParam(name = "cost") Double cost,
+                            @RequestParam(name = "date") String date) throws ParseException {
+
+        Cash cash = service.getCashById(id);
+        cash.setDescription(desc);
+        cash.setCost(cost);
+        cash.setEntryDate(dateFormat.parse(date));
+
+        service.update(cash);
+
+        model.put("title", "Home page");
+        return "index";
     }
 
 }
