@@ -24,16 +24,19 @@ public class User {
 
     private String role;
 
+    private Boolean enabled;
+
     @CreatedDate
     private Date createdDate;
 
     public User() {
     }
 
-    public User(String username, String password, String email) {
+    public User(String username, String password, String email, Boolean enabled) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.enabled = enabled;
     }
 
     public Integer getId() {

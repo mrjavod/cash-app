@@ -2,15 +2,16 @@ package com.is.cashApp.models;
 
 public class Entries {
 
+    private Integer id;
     private String desc;
     private Double cost;
-    private String type;
+    private Integer type;
     private String date;
 
     public Entries() {
     }
 
-    public Entries(String desc, Double cost, String type, String date) {
+    public Entries(String desc, Double cost, Integer type, String date) {
         this.desc = desc;
         this.cost = cost;
         this.type = type;
@@ -33,11 +34,11 @@ public class Entries {
         this.cost = cost;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -47,5 +48,13 @@ public class Entries {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
